@@ -92,33 +92,5 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById('feedback-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevents the default form submission
-
-            var formData = new FormData(this);
-            var data = {};
-            formData.forEach(function(value, key) {
-                data[key] = value;
-            });
-
-            fetch('', { // Replace with your webhook URL
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Form submitted successfully!');
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                alert('Error submitting form');
-                console.error('Error:', error);
-            });
-        });
-    </script>
 </body>
 </html>
